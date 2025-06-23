@@ -16,5 +16,5 @@ export default async function js2(props){
         default :number
     }
     const final = number - 100
-    return `${final} ¥`
+    return new Promise((resolve , reject)=>{setTimeout(()=>{resolve(`${final} ¥`)},2000)})
 }

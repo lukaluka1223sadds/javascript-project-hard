@@ -1,5 +1,4 @@
 'use strict'
-
 export default async function js1(prop1){
     let numb = prop1.match(/\d+/)
     const valuta =  prop1.match(/[$£¥€]/g)
@@ -17,5 +16,5 @@ export default async function js1(prop1){
             numb
     }
     const final = numb - 45
-    return `${final} €`
+    return  new Promise((resolve , reject)=>{setTimeout(()=>{resolve(`${final} €`)},3000)}) 
 }

@@ -3,16 +3,17 @@
 import {log} from "../../log/js.js" 
 
 export default function AddLog(response,state){
-    const valuta =  response.match(/[$£¥€]/g)
+    const valuta = typeof response === "string" ? response.match(/[$£¥€]/g) : null; 
     const logs={
         name:"Italy bank",
-        success: response !== Object?true: false,
+        success: typeof response == "string" ? true : false,
         stateBefore:state,
-        stateAfter:response,
-        valuta:valuta[0],
-        error: response !== Object ? null : {
+        stateAfter:typeof response == "string" ? response : "Error",
+        valuta: valuta && valuta[0] ? valuta[0] : "Error",
+        error: typeof response == "string" ? null : {
             testo:response.message
         }
     }
+    console.log(logs)
     log.push(logs)
 }

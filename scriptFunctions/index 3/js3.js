@@ -17,5 +17,5 @@ export default async function js3(props){
             number
     }
     const final = number - 12
-    return `${final} $`
+    return new Promise((resolve,reject)=>{ setTimeout(()=>{resolve(`${final} $`)},2000)})
 }
